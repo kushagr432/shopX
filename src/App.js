@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-
+import LogIn from './Components/Authentication/LogIn';
+import DataSample from './Components/DataSample';
+import Home from './Components/Home';
+import PaymentPage from './Components/PaymentPage';
+import ProductDetails from './Components/ProductDetails';
+import ProductList from './Components/ProductItem';
+import QuizGame from './Components/QuizGame';
+import SamplePage from './Components/SamplePage';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<>
+  <Routes>
+        <Route path="/"  element={<Home/>} />
+        <Route path="/product/:id" element={<ProductDetails/>} />
+        <Route path="/payment" element={<PaymentPage/>} />
+        <Route path="/data"  element={<DataSample/>} />
+        <Route path="/sample"  element={<SamplePage/>} />
+        <Route path="/quiz" element= {<QuizGame/>} />
+        <Route path="/login" element= {<LogIn/>} />
+        <Route path="/products" element= {<ProductList/>} />
+        {/* Add more routes for other pages */}
+      </Routes>
+</>
   );
 }
 
